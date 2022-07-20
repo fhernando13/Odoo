@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="ordenes.pedidos_list_view">
+      <field name="name">pedidos</field>
+      <field name="model">ordenes.pedidos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="pieces" />
+          <field name="n_p_start_date" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="ordenes.pedidos_form_view">
+      <field name="name">view.ordenes.pedidos.view.form</field>
+      <field name="model">ordenes.pedidos</field>
+      <field name="arch" type="xml">
+
+        <form string="Información de los pedidos">
+          <sheet>
+
+            <separator string="Informacion de los pedidos"></separator>
+
+            <group>
+              <group>
+                <field name="name" />
+                <field name="pieces" />
+                <field name="n_p_start_date" />
+              </group>
+            </group>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="ordenes.pedidos_action_window">
+      <field name="name">Lista de pedidos</field>
+      <field name="res_model">ordenes.pedidos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Calendar 
+    <record model="ir.ui.view" id="garaje.pedidos_calendar_view">
+      <field name="name">ordenes.pedidos.view.calendar</field>
+      <field name="model">ordenes.pedidos</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario de pedidos" date_start="fecha" >
+          <field name="tipo"/>
+          <field name="costo"/>
+        </calendar>
+      </field>
+    </record>-->
+
+    <!-- Top menu item -->
+    <menuitem name="pedidos" id="ordenes.menu_root" />
+
+    <!-- menu categories -->
+
+    <menuitem name="Registro de ordenes" id="ordenes.pedidos_menu" parent="ordenes.menu_root" action="ordenes.pedidos_action_window" />
+
+  </data>
+</odoo>

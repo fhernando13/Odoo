@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="productos.productos_list_view">
+      <field name="name">productos.view.tree</field>
+      <field name="model">productos.productos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="product"/>
+          <field name="amount"/>
+          <field name="price"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Menu -->
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="productos.productos_action_window">
+      <field name="res_model">productos.producto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="productos" id="productos.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Registro de productos" id="productos.productos_menu" parent="productos.menu_root" action="productos.productos_action_window"/>
+    
+  </data>
+</odoo>
