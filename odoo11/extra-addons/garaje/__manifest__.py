@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "garaje",
+    'name': "Garaje",
 
     'summary': """
-        Gestion de colleciones de autos en estacionamientos""",
+        Administracion de garaje
+        """,
 
     'description': """
-        App de estacionamiento, gestiona autos, usuarios y mas!!!!!!!!!
+        Modulo para administrar autos, estacionamientos y mantenimientos
     """,
 
-    'author': "My Company",
+    'author': "Fers",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -23,11 +24,12 @@
 
     # always loaded
     'data': [
-        'security/garaje_security.xml',
-        'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-        'data/garaje_data.xml',
+        # 'security/ir.model.access.csv',
+        'views/garaje_auto.xml',
+        'views/garaje_moto.xml',
+        'views/garaje_mantenimiento.xml',
+        'views/garaje_estacionamiento.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

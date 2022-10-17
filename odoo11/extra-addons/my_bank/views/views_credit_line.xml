@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <!-- View tree -->
+    <record model="ir.ui.view" id="my_bank.credit_line_list">
+      <field name="name">my_bank.credit_line</field>
+      <field name="model">my_bank.credit_line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date_line_credit" />
+          <field name="name" />
+          <field name="required_amount" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- View form -->
+    <record model="ir.ui.view" id="my_bank.credit_line_form_view">
+      <field name="name">view.my_bank.credit_line.view.form</field>
+      <field name="model">my_bank.credit_line</field>
+      <field name="arch" type="xml">
+        <form string="Saldo">
+          <sheet>
+            <separator string="Ingresos"></separator>
+            <group>
+              <group>
+                <field name="date_line_credit" />
+                <field name="name" />
+                <field name="required_amount" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="my_bank.credit_line_action_window">
+      <field name="name">Ingresos lineas por credito</field>
+      <field name="res_model">my_bank.credit_line</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <menuitem name="Bancos" id="my_bank.menu_root"/>
+    
+        <!-- menu categories -->
+        
+        <menuitem name="Saldos" id="my_bank.balance_bank_menu" parent="my_bank.menu_root" action="my_bank.balance_bank_action_window"/>
+        <menuitem name="Ingresos" id="my_bank.credit_line_menu" parent="my_bank.menu_root" action="my_bank.credit_line_action_window"/>
+        
+    </data>
+    
+</odoo>

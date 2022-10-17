@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!-- Vistas estacionamiento-->
+        <record model="ir.ui.view" id="garaje.estacionamiento_list_view">
+            <field name="name">garaje.estacionamiento.view.tree</field>
+            <field name="model">garaje.estacionamiento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="plazas" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="garaje.estacionamiento_form_view">
+            <field name="name">view.garaje.estacionamiento.view.form</field>
+            <field name="model">garaje.estacionamiento</field>
+            <field name="arch" type="xml">
+
+                <form string="Formulario estacionamiento">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Direccion" />
+                            <h1>
+                                <field name="name" placeholder="Direccion" />
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <serparator string="Informacion General" />
+                                <field name="plazas" />
+                            </group>
+                        </group>
+
+                        <group>
+                            <field name="auto_ids" />
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="garaje.estacionamiento_action_window">
+            <field name="name">Estacionamiento</field>
+            <field name="res_model">garaje.estacionamiento</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

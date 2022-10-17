@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <!-- View tree -->
+    <record model="ir.ui.view" id="my_bank.balance_bank_list">
+      <field name="name">my_bank.balance_bank</field>
+      <field name="model">my_bank.balance_bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date_balance" />
+          <field name="name" />
+          <field name="balance_today" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- View from -->
+    <record model="ir.ui.view" id="my_bank.balance_bank_form_view">
+      <field name="name">view.my_bank.balance_bank.view.form</field>
+      <field name="model">my_bank.balance_bank</field>
+      <field name="arch" type="xml">
+        <form string="Saldo">
+          <sheet>
+            <separator string="Informacion del saldo"></separator>
+            <group>
+              <group>
+                <field name="date_balance" />
+                <field name="name" />
+                <field name="balance_today" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="my_bank.balance_bank_action_window">
+      <field name="name">Bancos</field>
+      <field name="res_model">my_bank.balance_bank</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   
+  </data>
+</odoo>

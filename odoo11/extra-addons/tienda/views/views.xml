@@ -1,9 +1,10 @@
 <odoo>
   <data>
+
     <!-- explicit list view definition -->
 
     <record model="ir.ui.view" id="tienda.productos_list_view">
-      <field name="name">Lista de productos</field>
+      <field name="name">tienda.productos.view.tree</field>
       <field name="model">tienda.productos</field>
       <field name="arch" type="xml">
         <tree>
@@ -18,17 +19,17 @@
       <field name="name">view.tienda.productos.view.form</field>
       <field name="model">tienda.productos</field>
       <field name="arch" type="xml">
-
         <form string="Información de los productos">
+          
           <sheet>
 
             <separator string="Informacion de los productos"></separator>
 
             <group>
               <group>
-                <field name="product" />
-                <field name="amount" />
-                <field name="price" />
+                <field name="product"/>
+                <field name="amount"/>
+                <field name="price"/>
               </group>
             </group>
 
@@ -37,15 +38,31 @@
       </field>
     </record>
 
+    <!-- Pivote -->
+
+    <record id="productos_view_pivot" model="ir.ui.view">
+      <field name="name">Lista pivote</field>
+      <field name="model">tienda.productos</field>
+      <field name="arch" type="xml">
+        <pivot>
+          <field name="product"/>
+          <field name="amount"/>
+          <field name="price"/>
+        </pivot>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="tienda.productos_action_window">
       <field name="name">Lista de productos</field>
       <field name="res_model">tienda.productos</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,pivot</field>
     </record>
+
+
     <!-- Top menu item -->
+
     <menuitem name="productos" id="tienda.menu_root" />
 
     <!-- menu categories -->

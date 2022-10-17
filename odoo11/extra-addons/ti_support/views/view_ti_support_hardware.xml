@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <!-- model.name form view -->
+        <record id="hardware_view_form" model="ir.ui.view">
+            <field name="name">Soporte técnico a dispositivos</field>
+            <field name="model">ti_support.ti_support_hardware</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                    <header>
+                         <field name="state" widget="statusbar" statusbar_visible="p,e,d,c" clickable="True"/>
+                    </header>
+                        <group col="4">
+                           <field name="name"/>
+                           <field name="no_payroll"/>
+                           <field name="no_phone" widget="phone"/>
+                           <field name="email" widget="email"/>
+                           <field name="area"/>                      
+                        </group>
+                        <group>
+                            <field name="issue"/>   
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- model.name tree view -->
+        <record id="hardware_view_tree" model="ir.ui.view">
+            <field name="name">Lista</field>
+            <field name="model">ti_support.ti_support_hardware</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="no_payroll"/>
+                    <field name="no_phone"/>
+                    <field name="email"/>
+                    <field name="area"/>  
+                    <field name="progress" widget="progressbar"/> 
+                    <field name="issue"/> 
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="ti_support.hardware_action_window">
+			<field name="name">Soporte técnico</field>
+			<field name="res_model">ti_support.ti_support_hardware</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+    </data>
+</odoo>

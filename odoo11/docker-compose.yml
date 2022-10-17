@@ -1,21 +1,30 @@
 version: '3.1'
 services:
-  my_odoo:
-    image: odoo:12
+  odoo11:
+    image: odoo:11
     depends_on:
-      - my_db
+      - psql
     ports:
-      - "8079:8069"
+      - "8089:8069"
     environment:
-    - HOST=my_db
-    - USER=odoo
+    - HOST=psql
     - PASSWORD=my_odoo
     volumes:
       - ./extra-addons:/mnt/extra-addons
-  my_db:
+  psql:
     image: postgres:11
+    ports:
+      - "5454:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=my_odoo
       - POSTGRES_USER=odoo
-
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "fer@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "9000:80"
+    depends_on:
+      - psql  

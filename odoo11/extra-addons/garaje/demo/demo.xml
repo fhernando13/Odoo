@@ -1,65 +1,30 @@
 <odoo>
     <data>
-
-        <!-- Estacionamiento -->
-        <record id="estacionamiento1" model="garaje.estacionamiento"> 
-            <field name="name">Calle 1</field>
-            <field name="plazas">9</field>
-        </record>
-
-        <record id="estacionamiento2" model="garaje.estacionamiento"> 
-            <field name="name">Calle 2</field>
-            <field name="plazas">10</field>
-        </record>
-
-        <!-- Autos -->
-        <record id="auto1" model="garaje.auto"> -->
-            <field name="name">asd1234</field>
-            <field name="modelo">Tsuru II</field>
-            <field name="construido">1989-06-10</field>
-            <field name="consumo">11.5</field>
-            <field name="averiado">False</field>
-            <field name="descripcion">standard</field>
-            <field name="estacionamiento_id" ref="estacionamiento1"></field>
-        </record>
-
-        <record id="auto2" model="garaje.auto"> -->
-            <field name="name">asd1235</field>
-            <field name="modelo">Corvette</field>
-            <field name="construido">1967-05-20</field>
-            <field name="consumo">20.5</field>
-            <field name="averiado">False</field>
-            <field name="descripcion">standard</field>
-            <field name="estacionamiento_id" ref="estacionamiento1"/>
-        </record>
-
-        <record id="auto3" model="garaje.auto"> -->
-            <field name="name">asd1236</field>
-            <field name="modelo">Platina</field>
-            <field name="construido">2006-10-10</field>
-            <field name="consumo">10.5</field>
-            <field name="averiado">True</field>
-            <field name="descripcion">automatico</field>
-            <field name="estacionamiento_id" ref="estacionamiento2"/>
-        </record>
-
-        <record id="auto3" model="garaje.auto"> -->
-            <field name="name">asd1237</field>
-            <field name="modelo">Topaz</field>
-            <field name="construido">1990-10-01</field>
-            <field name="consumo">12.5</field>
-            <field name="averiado">True</field>
-            <field name="descripcion">automatico</field>
-            <field name="estacionamiento_id" ref="estacionamiento2"/>
-        </record>
-
-        <!-- Mantenimiento -->
-        <record id="mantenimiento1" model="garaje.mantenimiento"> 
-            <field name="fecha" eval="datetime.now()"/>
-            <field name="tipo">l</field>
-            <field name="coste">23</field>
-            <field name="auto_ids" eval="[(6, 0, [ref('auto1'), ('auto2')])]"/>
-        </record>
-
+        <!--  -->
+        <!--   <record id="object0" model="garaje.garaje"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="garaje.garaje"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="garaje.garaje"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="garaje.garaje"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="garaje.garaje"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
     </data>
 </odoo>
