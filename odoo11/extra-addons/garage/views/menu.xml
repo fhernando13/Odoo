@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <menuitem name="Garage" id="garage.menu_root"/>
+    
+        <!-- menu categories -->
+        
+        <menuitem name="Estacionamientos" id="garage.estacionamiento_menu" parent="garage.menu_root" action="garage.estacionamiento_action_window"/>
+        <menuitem name="Autos" id="garage.auto_menu" parent="garage.menu_root" action="garage.auto_action_window"/>
+        <menuitem name="Motos" id="garage.moto_menu" parent="garage.menu_root" action="garage.moto_action_window"/>
+        <menuitem name="Mantenimientos" id="garage.mantenimiento_menu" parent="garage.menu_root" action="garage.mantenimiento_action_window"/>
+        
+    
+    </data>
+    
+</odoo>

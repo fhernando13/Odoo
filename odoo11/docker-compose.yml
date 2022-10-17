@@ -6,11 +6,14 @@ services:
       - psql
     ports:
       - "8089:8069"
+      - "8000:8000"
     environment:
     - HOST=psql
     - PASSWORD=my_odoo
     volumes:
       - ./extra-addons:/mnt/extra-addons
+      - ./config:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
   psql:
     image: postgres:11
     ports:
@@ -27,4 +30,7 @@ services:
     ports:
       - "9000:80"
     depends_on:
-      - psql  
+      - psql 
+volumes:
+  odoo-web-data:
+  odoo-db-data:

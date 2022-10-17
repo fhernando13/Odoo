@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- View tree -->
+        <record model="ir.ui.view" id="garage.auto_list_view">
+            <field name="name">Autos</field>
+            <field name="model">garage.auto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="color" />
+                    <field name="precio" />
+                    <field name="descripcion" />
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- View form -->
+        <record model="ir.ui.view" id="garage.auto_form_view">
+            <field name="name">Autos</field>
+            <field name="model">garage.auto</field>
+            <field name="arch" type="xml">
+
+                <form string="Información del auto">
+                    <sheet>
+
+                        <separator string="Informacion del auto"></separator>
+
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="marca" />
+                                <field name="matricula" />
+                                <field name="version" />
+                                <field name="tipo" />
+                            </group>
+
+                            <group>
+                                <field name="construido" />
+                                <field name="consumo" />
+                                <field name="motor" />
+                                <field name="color" />
+                                <field name="precio" />
+                            </group>
+
+                        </group>
+
+                        <field name="descripcion" />
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Busqueda -->
+        <record model="ir.ui.view" id="garage.auto_search_view">
+            <field name="name">Autos</field>
+            <field name="model">garage.auto</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <field name="marca" />
+                    <field name="matricula" />
+                    <field name="version" />
+                    <field name="tipo" />
+                    <field name="construido" />
+                    <field name="consumo" />
+                    <field name="motor" />
+                    <field name="color" />
+                    <field name="precio" />
+                    <field name="descripcion" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="garage.auto_action_window">
+            <field name="name">Autos</field>
+            <field name="res_model">garage.auto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
