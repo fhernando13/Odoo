@@ -5,11 +5,15 @@
         <menuitem name="Soporte TI" id="ti_support.menu_root"/>
     
         <!-- menu main -->
-        <menuitem name="Dispositivo" id="ti_support.ti_support_device_menu" parent="ti_support.menu_root" action="ti_support.device_action_window" sequence="0"/>
-        <menuitem name="Marca" id="ti_support.ti_support_brand_menu" parent="ti_support.menu_root" action="ti_support.brand_action_window" sequence="1"/>
-        <menuitem name="Asignacion de equipos" id="ti_support.ti_support_assignment_menu" parent="ti_support.menu_root" action="ti_support.assignment_action_window" sequence="2"/>
-        <menuitem name="Soporte Técnico a dispositivos" id="ti_support.ti_support_hardware_menu" parent="ti_support.menu_root" action="ti_support.hardware_action_window" sequence="0"/>
-        <menuitem name="Soporte Técnico al sistema" id="ti_support.ti_support_system_menu" parent="ti_support.menu_root" action="ti_support.system_action_window" sequence="1"/>
+
+        <menuitem name="Inventario" id="menu_inventario_main" parent="ti_support.menu_root"/>
+        <menuitem name="Dispositivo" id="ti_support.ti_support_device_menu" parent="menu_inventario_main" action="ti_support.device_action_window" />
+        <menuitem name="Marca" id="ti_support.ti_support_brand_menu" parent="menu_inventario_main" action="ti_support.brand_action_window" />
+        <menuitem name="Asignacion de equipos" id="ti_support.ti_support_assignment_menu" parent="menu_inventario_main" action="ti_support.assignment_action_window" />
+
+        <menuitem name="Soporte" id="menu_soporte_main" parent="ti_support.menu_root"/>
+        <menuitem name="Soporte Técnico a dispositivos" id="ti_support.ti_support_hardware_menu" parent="menu_soporte_main" action="ti_support.hardware_action_window" />
+        <menuitem name="Soporte Técnico al sistema" id="ti_support.ti_support_system_menu" parent="menu_soporte_main" action="ti_support.system_action_window" />
     
     </data>    
 </odoo>

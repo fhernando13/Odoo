@@ -21,8 +21,8 @@ class ti_support_system(models.Model):
                                               ('A', 'Android'), 
                                               ('O', 'Odoo')], string='Sistema', default="O")
     link_page = fields.Char(string='Link', require=True)
-    caption  = fields.Binary(string='captura del error', require=True)
-    issue  = fields.Html(string='Descripcion del problema', require=True)
+    issue = fields.Text(string='Descripcion del problema')
+    caption  = fields.Html(string='Captura del error', require=True)
     progress = fields.Integer(string="Progreso", compute='_progress')
 
 

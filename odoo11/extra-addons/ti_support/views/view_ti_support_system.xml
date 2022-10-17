@@ -19,13 +19,18 @@
 							<field name="email" widget="email" />
 							<field name="area" />
 							<field name="link_page" widget="url" />
-							<field name="caption" filename="store_fname" />
 							<field name="type_system"/>
-							<field name="progress"/>
 						</group>
-						<group>
-							<field name="issue" />
+						<group col="4">
+							<field name="issue"/>
 						</group>
+						<notebook>
+							<page name="name" string="Capturas">
+								<!-- captura -->
+								<!-- <field name="caption" filename="store_fname" /> -->
+								<field name="caption" />
+							</page>
+						</notebook>
 					</sheet>
 				</form>
 			</field>
