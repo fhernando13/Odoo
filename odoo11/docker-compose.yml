@@ -8,29 +8,23 @@ services:
       - "8089:8069"
       - "8000:8000"
     environment:
-    - HOST=psql
-    - PASSWORD=my_odoo
+      - HOST=psql
+      - PASSWORD=my_odoo
     volumes:
-      - ./extra-addons:/mnt/extra-addons
+      - odoo-odoo11-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - odoo-web-data:/var/lib/odoo
+      - ./extra-addons:/mnt/extra-addons
   psql:
-    image: postgres:11
+    image: postgres:12
     ports:
       - "5454:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=my_odoo
       - POSTGRES_USER=odoo
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "fer@email.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin"
-    ports:
-      - "9000:80"
-    depends_on:
-      - psql 
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-psql-data:/var/lib/postgresql/data/pgdata
 volumes:
-  odoo-web-data:
-  odoo-db-data:
+  odoo-odoo11-data:
+  odoo-psql-data:

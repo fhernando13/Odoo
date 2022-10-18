@@ -4,3 +4,44 @@ python3 -m ptvsd --host localhost --port 5678 /usr/bin/odoo --config /etc/odoo/o
 
 encontrar ruta odoo
 whereis odoo
+
+
+docker-compose.yml
+version: '3.1'
+services:
+  odoo11:
+    image: odoo:11
+    depends_on:
+      - psql
+    ports:
+      - "8089:8069"
+      - "8000:8000"
+    environment:
+    - HOST=psql
+    - PASSWORD=my_odoo
+    volumes:
+      - ./extra-addons:/mnt/extra-addons
+      - ./config:/etc/odoo
+      - odoo-odoo11-data:/var/lib/odoo
+  psql:
+    image: postgres:11
+    ports:
+      - "5454:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=my_odoo
+      - POSTGRES_USER=odoo
+    volumes:
+      - odoo-psql-data:/var/lib/postgresql/data/pgdata
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "fer@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "9000:80"
+    depends_on:
+      - psql 
+volumes:
+  odoo-odoo11-data:
+  odoo-psql-data:
