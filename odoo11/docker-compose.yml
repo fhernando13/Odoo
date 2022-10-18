@@ -11,7 +11,7 @@ services:
       - HOST=psql
       - PASSWORD=my_odoo
     volumes:
-      - odoo-odoo11-data:/var/lib/odoo
+      #- odoo-odoo11-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
   psql:
@@ -26,5 +26,5 @@ services:
     volumes:
       - odoo-psql-data:/var/lib/postgresql/data/pgdata
 volumes:
-  odoo-odoo11-data:
+  #odoo-odoo11-data:
   odoo-psql-data:
