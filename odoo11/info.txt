@@ -11,6 +11,16 @@ encontrar ruta odoo
 whereis odoo
 
 
+odoo11 docker
+usr/lib/python/dist-packages/odoo/addons/web/static/src/less/variables.less
+odoo11 server
+addons/web/static/src/less/variables.less
+
+odoo15 docker
+usr/lib/python/dist-packages/odoo/addons/web/static/src/legacy/scss/primary_variables.scss
+odoo11 server
+addons/web/static/src/less/variables.less
+
 docker-compose.yml
 version: '3.1'
 services:
