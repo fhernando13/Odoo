@@ -15,5 +15,8 @@
         <menuitem name="Soporte Técnico a dispositivos" id="ti_support.ti_support_hardware_menu" parent="menu_soporte_main" action="ti_support.hardware_action_window" />
         <menuitem name="Soporte Técnico al sistema" id="ti_support.ti_support_system_menu" parent="menu_soporte_main" action="ti_support.system_action_window" />
     
+        <!-- <menuitem name="Reportes" id="menu_reportes_main" parent="ti_support.menu_root"/>
+        <menuitem name="Reportes" id="ti_support.ti_support_report_menu" parent="menu_reportes_main" action="ti_support.report_action_window" /> -->
+
     </data>    
 </odoo>

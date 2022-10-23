@@ -2,45 +2,23 @@
 <odoo>
   <data>
 
-    <!-- model.name form view
-    <record id="ti_support_ti_support_device_view_form" model="ir.ui.view">
-      <field name="name">ti_support.device.view.form</field>
+    <!-- model.name kanban view -->
+    <record id="device_view_kanban" model="ir.ui.view">
+      <field name="name">Marcas</field>
       <field name="model">ti_support.ti_support_device</field>
       <field name="arch" type="xml">
-        <form string="">
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="brand_device"/>
-              <field name="tipy_device"/>
-              <field name="ip_address_network"/>
-              <field name="mac_address"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record> -->
-
-    <!-- model.name tree view -->
-    <!-- <record id="ti_support_ti_support_device_view_tree" model="ir.ui.view">
-      <field name="name">ti_support.device.view.tree</field>
-      <field name="model">ti_support.ti_support_device</field>
-      <field name="arch" type="xml">
-        <tree>
+        <kanban string="Kanban Description">
+          <!-- Add your fields here -->
           <field name="name"/>
-          <field name="brand_device"/>
-          <field name="tipy_device"/>
-          <field name="ip_address_network"/>
-          <field name="mac_address"/>
-        </tree>
+        </kanban>
       </field>
-    </record> -->
+    </record>
 
 
     <record model="ir.actions.act_window" id="ti_support.brand_action_window">
         <field name="name">Marcas</field>
         <field name="res_model">ti_support.ti_support_brand</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     

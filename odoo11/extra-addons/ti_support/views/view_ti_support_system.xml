@@ -12,8 +12,13 @@
 							 <button type="object" name="action_py" string="Secuencia" class="oe_highlight" style=""/>
                     	     <field name="state" widget="statusbar" statusbar_visible="p,e,d,c" clickable="True"/>
                     	</header>
+						<h2 name="header_name">
+							<field name="created_by"/>
+							<!-- <field name="kanban_state"
+								   widget="state_selection"
+								   class="request-kanban-state ml8"/> -->
+						</h2>
 						<group col="4">
-							<field name="name" />
 							<field name="no_payroll" />
 							<field name="no_phone" widget="phone" />
 							<field name="email" widget="email" />
@@ -31,6 +36,12 @@
 								<field name="caption" />
 							</page>
 						</notebook>
+						<div class="row mt8">
+                            <div class="col-md-3">
+                                <div><label for="date_created" string="Hora"/></div>
+                                <div><field name="date_created"/></div>
+                            </div>
+                        </div>
 					</sheet>
 				</form>
 			</field>
@@ -43,7 +54,7 @@
 				<tree>
 					<!-- Add your fields here -->
 					<field name="type_system"/>
-					<field name="name" />
+					<field name="created_by" />
 					<field name="no_payroll" />
 					<field name="no_phone" widget="phone" />
 					<field name="email" widget="email" />
@@ -62,7 +73,7 @@
 			<field name="model">ti_support.ti_support_system</field>
 			<field name="arch" type="xml">
 				<kanban>
- 					<field name="name" />
+ 					<field name="created_by" />
 					<field name="no_payroll" />
 					<field name="no_phone" widget="phone" />
 					<field name="email"/>
@@ -84,7 +95,7 @@
                             		<div class="o_kanban_record_top">
                 		    	    	<ul>
 											<strong class="o_kanban_record_title">
-                            	        	    <field name="name"/>
+                            	        	    <field name="created_by"/>
                             	        	</strong>
 											<li t-if="record.no_phone.raw_value"><i class="fa fa-phone"/> <field name="no_phone"/></li>    
 											<li t-if="record.email.raw_value"><i class="fa fa-envelope"/> <field name="email"/></li>

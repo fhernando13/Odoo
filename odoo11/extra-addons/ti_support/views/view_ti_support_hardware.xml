@@ -12,16 +12,27 @@
                     <header>
                          <field name="state" widget="statusbar" statusbar_visible="p,e,d,c" clickable="True"/>
                     </header>
+                    <h2 name="header_name">
+                        <field name="created_by"/>
+                        <!-- <field name="kanban_state"
+                               widget="state_selection"
+                               class="request-kanban-state ml8"/> -->
+                    </h2>
                         <group col="4">
-                           <field name="name"/>
+                           <field name="email" widget="email"/>
                            <field name="no_payroll"/>
                            <field name="no_phone" widget="phone"/>
-                           <field name="email" widget="email"/>
                            <field name="area"/>                      
                         </group>
                         <group>
                             <field name="issue"/>   
                         </group>
+                        <div class="row mt8">
+                            <div class="col-md-3">
+                                <div><label for="date_created" string="Hora"/></div>
+                                <div><field name="date_created"/></div>
+                            </div>
+                        </div>
                     </sheet>
                 </form>
             </field>
@@ -34,7 +45,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <!-- Add your fields here -->
-                    <field name="name"/>
+                    <field name="created_by"/>
                     <field name="no_payroll"/>
                     <field name="no_phone"/>
                     <field name="email"/>

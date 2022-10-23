@@ -11,6 +11,7 @@ class ReportWizard(models.TransientModel):
     precio_li = fields.Integer(string='Precio desde:',store=True)
     precio_ls = fields.Integer(string='Precio hasta:',store=True)
     name_select = fields.Selection('_get_name',string='Modelo',store=True)
+    
     def _get_name(self):
         selection = []
         records = self.env['garage.moto'].read_group([], fields=['name'], groupby=['name'])
@@ -49,7 +50,8 @@ class ReportWizard(models.TransientModel):
 
     def get_report(self,values):
         x = dict(self)
-        print(x)
+        for i in values:
+            return i
 
 
     

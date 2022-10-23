@@ -1,2 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ti_support_ti_support,ti_support.ti_support,model_ti_support_ti_support,,1,0,0,0
+access_ti_support_hardware_user,ti_support.ti_support_hardware.user,model_ti_support_ti_support_hardware,base.group_user,1,1,1,0
+access_ti_support_system_user,ti_support.ti_support_system.user,model_ti_support_ti_support_system,base.group_user,1,1,1,0
+access_ti_support_device_user,ti_support.ti_support_device.user,model_ti_support_ti_support_device,base.group_user,0,0,0,0
+access_ti_support_brand_user,ti_support.ti_support_brand.user,model_ti_support_ti_support_brand,base.group_user,0,0,0,0
+access_ti_support_assignment_user,ti_support.ti_support_assignment.user,model_ti_support_ti_support_assignment,base.group_user,0,0,0,0
+access_ti_support_hardware_manager,ti_support.ti_support_hardware.manager,model_ti_support_ti_support_hardware,base.group_system,1,1,1,1
+access_ti_support_system_manager,ti_support.ti_support_system.manager,model_ti_support_ti_support_system,base.group_system,1,1,1,1
+access_ti_support_device_manager,ti_support.ti_support_device.manager,model_ti_support_ti_support_device,base.group_system,1,1,1,1
+access_ti_support_brand_manager,ti_support.ti_support_brand.manager,model_ti_support_ti_support_brand,base.group_system,1,1,1,1
+access_ti_support_assignment_manager,ti_support.ti_support_assignment.manager,model_ti_support_ti_support_assignment,base.group_system,1,1,1,1

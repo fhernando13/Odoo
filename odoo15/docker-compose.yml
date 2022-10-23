@@ -1,21 +1,30 @@
 version: '3.1'
 services:
-  my_odoo:
+  odoo11:
     image: odoo:15
     depends_on:
-      - my_db
+      - psql
     ports:
-      - "8015:8069"
+      - "8059:8069"
+      - "9000:8000"
     environment:
-    - HOST=my_db
-    - USER=odoo
-    - PASSWORD=my_odoo
+      - HOST=psql
+      - PASSWORD=my_odoo
     volumes:
+      #- odoo-odoo11-data:/var/lib/odoo
+      - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
-  my_db:
-    image: postgres:14
+  psql:
+    image: postgres:12
+    ports:
+      - "5445:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=my_odoo
       - POSTGRES_USER=odoo
-
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-psql-data:/var/lib/postgresql/data/pgdata
+volumes:
+  #odoo-odoo11-data:
+  odoo-psql-data:

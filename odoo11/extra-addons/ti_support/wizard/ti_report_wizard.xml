@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="ti_support.report_wizard_form" model="ir.ui.view">
+            <field name="name">Reporte de TI</field>
+            <field name="model">ti_support.ti_report_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reporte de Ti">
+                    <sheet>
+                        <group>
+                            <field name="email_select"/>
+                            <field name="area_select"/>
+                            <field name="state_select"/>
+                        </group>
+                        <footer>
+                            <button name="field_view_get" string="Generar Reporte" type="object" class="oe_highlight" />
+                            <button string="Cancel" special="cancel" class="oe_link" />
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ti_support.report_action_window" model="ir.actions.act_window">
+            <field name="name">Reporte assignaciones</field>
+            <field name="res_model">ti_support.ti_report_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <!-- new -->
+            <!-- current -->
+            <!-- main -->
+            <!-- inline -->
+            <!-- fullscreen -->
+        </record>
+
+     </data>
+</odoo>
