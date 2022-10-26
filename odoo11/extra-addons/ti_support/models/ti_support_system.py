@@ -17,7 +17,7 @@ class ti_support_system(models.Model):
     email = fields.Char(string='Email 4G', require=True)
     area  = fields.Char(string='Área')
     state = fields.Selection(selection=[('p', 'Pendiente'), 
-                                        ('e', 'En proceso'), 
+                                        ('i', 'En proceso'), 
                                         ('d', 'Terminado'), 
                                         ('c', 'Cancelado')], string='Estado', default="p")
     type_system = fields.Selection(selection=[('W', 'Windows'), 
@@ -31,12 +31,12 @@ class ti_support_system(models.Model):
         'Hora', default=fields.Datetime.now, readonly=True, copy=False)
     
 
-    @api.depends('state')
+    api.depends('state')
     def _progress(self):
         for rec in self:
             if rec.state == 'p':
                 rec.progress = 0
-            elif rec.state == 'e':
+            elif rec.state == 'i':
                 rec.progress = 50
             elif rec.state == 'd':
                 rec.progress = 100
@@ -46,13 +46,23 @@ class ti_support_system(models.Model):
     @api.constrains('email')
     def _check_mail(self):
         for rec in self:
-            email = self.env['hr.employee'].search([('work_email', '=', rec.email),  ('id', '!=', rec.id)])
+            email = self.env['res.users'].search([('login', '=', rec.email),  ('id', '!=', rec.id)])
             if not email:
                 print('no existe')
                 raise ValidationError("El email, no existe!!!")
 
-    def action_py(self):
-        raise ValidationError("Esto es una prueba")
+    def change_state(self):
+        if self.env.uid == True:
+            if self.state == 'p':
+                self.state = 'i'
+            elif self.state == 'i':
+                self.state = 'd'
+            elif self.state == 'd':
+                self.state = 'c'
+            elif self.state == 'c':
+                self.state = 'p'
+        else:
+            raise ValidationError("No tiene permisos para cambiar el estado del proceso!!")
 
     # xml_file_name ='Nombre'+'.xml'
                 # self.env['ir.attachment'].sudo().create(

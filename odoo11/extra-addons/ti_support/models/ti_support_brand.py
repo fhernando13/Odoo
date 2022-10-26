@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 class ti_support_brand(models.Model):
     _name = 'ti_support.ti_support_brand'
 
-    name = fields.Char(string='Marca', require=True)
+    name = fields.Char(string='Marca', required=True)
 
     @api.constrains('name')
     def check_name(self):

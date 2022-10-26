@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from email.policy import default
 from odoo import models, fields, api
 import random 
 from odoo.exceptions import ValidationError
@@ -9,22 +10,36 @@ class ti_support_device(models.Model):
     _name = 'ti_support.ti_support_device'
 
 
-    name = fields.Char(string='Modelo')
-    brand_id = fields.Many2one('ti_support.ti_support_brand', string='Marca')  
+    name = fields.Char(string='Modelo', help="Modelo del dispositivo")
+    brand_id = fields.Many2one('ti_support.ti_support_brand', string='Marca', help="Marca del dispositivo")  
     type_device = fields.Selection(string='Tipo', selection=[('LT', 'Laptop'), ('DT', 'escritorio'), ('TA', 'tablet'), ('SP', 'smartphone')], default='LT')
-    no_anydesk = fields.Char(string='Numero anydesk', require=True)
-    mac_address = fields.Char(string='Direccion MAC')
-    barcode = fields.Char(string='Código', compute='_barcode', store=True)
+    no_anydesk = fields.Char(string='Numero anydesk', required=True, help="Número de 9 digitos decimal")
+    mac_address = fields.Char(string='Direccion MAC', required=True, help="Número de 12 digitos hexadecimal")
+    #barcode = fields.Char(string='Código', compute='_barcode', store=True)
     area_device = fields.Selection(string='Área', selection=[('P', 'produccion'), ('O', 'Oficinas'), ('M', 'Mesanin'), ('A', 'Almacen'), ('C', 'Comedor')], default='O')
     inventory_code = fields.Char(string='Código de inventario', compute='_inventory_code', store=True)
     so = fields.Selection(string='Sistema operativo', selection=[('W10', 'windows 10'), 
                                                                 ('W8', 'windows 8'), 
                                                                 ('W11', 'windows 11'), 
-                                                                ('A', 'Android')])
-    storage = fields.Integer(string='Almacenamiento', default=250)
-    type_storage = fields.Selection(string='Tipo de almacenamiento', selection=[('SSD', "Estado solido"), ('HDD', "Disco mecanico")], default='SSD')
-    description = fields.Html(string='Descripción')
-    ram = fields.Selection(string='Tipo de memoria ram', selection=[('3', 'DDR3'), ('4', 'DDR4')], default="3")
+                                                                ('A', 'Android')], 
+                                                    default='W11',
+                                                    help='Sistema operativo del dispositivo')
+    storage = fields.Integer(string='Almacenamiento', default=250, required=True, help='Espacio en disco')
+    type_storage = fields.Selection(string='Tipo de almacenamiento', 
+                                    selection=[('SSD', "Estado solido"), ('HDD', "Disco mecanico"), ('HB', "Almacenamiento Hibrido")], 
+                                    default='SSD', 
+                                    help='Tipo de disco')
+    description = fields.Html(string='Descripción', 
+                            required=True,
+                            help='DEscripcion fisica del equipo')
+    ram = fields.Selection(string='Tipo de memoria ram', 
+                        selection=[('3', 'DDR3'), ('4', 'DDR4')], 
+                        default="3", 
+                        help='Tipo de memoria ram')
+    size_ram = fields.Integer('Tamaño de memoria ram',
+                                required=True,
+                                default=8,
+                                help='Tamaño de la memora ram en GB')
     active = fields.Boolean(default=True,copy=True)
 
 

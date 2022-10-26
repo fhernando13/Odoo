@@ -8,12 +8,12 @@ class ti_support_assignment(models.Model):
     _name = 'ti_support.ti_support_assignment'  
 
 
-    date_assignment = fields.Date(string='Fecha de asignacion', require=True)
+    date_assignment = fields.Date(string='Fecha de asignacion', required=True)
     status = fields.Selection(string='Estado', selection=[('N', 'Nuevo'), ('U', 'Usado')], default='N', require=True)
-    employee_id = fields.Char(string='Empleado', require=True)
-    device_id = fields.Many2one('ti_support.ti_support_device', string='Dispositivo', require=True) 
+    employee_id = fields.Char(string='Empleado', required=True)
+    device_id = fields.Many2one('ti_support.ti_support_device', string='Dispositivo', required=True) 
     time_assignment = fields.Integer(string='Días con el equipo', compute='time_trans')
-    condition = fields.Selection(selection=[('p', 'Prestado'), ('a', 'Asignado')], default='a', require=True)
+    condition = fields.Selection(selection=[('p', 'Prestado'), ('a', 'Asignado')], default='a', required=True)
 
     @api.multi
     def time_trans(self):

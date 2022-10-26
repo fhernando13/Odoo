@@ -9,9 +9,10 @@
             <field name="arch" type="xml">
                 <form string="">
                     <sheet>
-                    <header>
-                         <field name="state" widget="statusbar" statusbar_visible="p,e,d,c" clickable="True"/>
-                    </header>
+                        <header>
+                            <button type="object" name="change_state" string="Secuencia" class="oe_highlight" style=""/>
+                            <field name="state" widget="statusbar" statusbar_visible="p,i,d,c" />
+                       </header>
                     <h2 name="header_name">
                         <field name="created_by"/>
                         <!-- <field name="kanban_state"

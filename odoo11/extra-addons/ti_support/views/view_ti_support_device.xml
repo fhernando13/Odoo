@@ -26,6 +26,7 @@
 							<field name="storage" />
 							<field name="type_storage" />
 							<field name="ram" />
+							<field name="size_ram" />
 						</group>
 						<group>
 							<field name="description" />
@@ -46,7 +47,6 @@
 					<field name="type_device" />
 					<field name="no_anydesk" />
 					<field name="mac_address" />
-					<field name="barcode" />
 					<field name="area_device" />
 					<field name="inventory_code" />
 					<field name="so" />
@@ -54,6 +54,7 @@
 					<field name="type_storage" />
 					<field name="description" />
 					<field name="ram" />
+					<field name="size_ram"/>
 				</tree>
 			</field>
 		</record>
