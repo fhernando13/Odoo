@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','hr'],
+    'depends': ['base','hr', 'mail'],
 
     # always loaded
     'data': [
@@ -31,6 +31,7 @@
         'views/view_ti_support_assignment.xml',
         'views/view_ti_support_device.xml',
         'views/view_ti_support_brand.xml',
+        'views/view_ti_support_model.xml',
         # 'wizard/ti_report_wizard.xml',
         'views/view_ti_support_menu.xml',
         'views/templates.xml',

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- form view -->
+        <record id="garage.report_form" model="ir.ui.view">
+            <field name="name">Reporte de Motos</field>
+            <field name="model">garage.report</field>
+            <field name="arch" type="xml">
+                <form string="Reporte de Motos">
+                    <sheet>
+                        <header>
+                            <button name="get_report" type="object" string="Generar reporte" class="btn-success" />
+                            <button name="get_report2" type="object" string="Generar reporte 2" class="btn-success" />
+                        </header> 
+                        <group>
+                        </group>
+                        <!-- <footer>
+                            <button name="get_report" string="Generar Reporte" type="object" class="oe_highlight" />
+                            <button string="Cancel" special="cancel" class="oe_link" />
+                        </footer> -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action server -->
+        <record model="ir.actions.act_window" id="garage.report_action_window">
+            <field name="name">motos</field>
+            <field name="res_model">garage.report</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

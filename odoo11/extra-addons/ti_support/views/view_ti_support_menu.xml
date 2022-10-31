@@ -7,8 +7,9 @@
         <!-- menu main -->
 
         <menuitem name="Inventario" id="menu_inventario_main" parent="ti_support.menu_root"/>
+        <menuitem name="Marcas" id="ti_support.ti_support_brand_menu" parent="menu_inventario_main" action="ti_support.brand_action_window" />
+        <menuitem name="Modelos" id="ti_support.ti_support_model_menu" parent="menu_inventario_main" action="ti_support.model_action_window" />
         <menuitem name="Dispositivo" id="ti_support.ti_support_device_menu" parent="menu_inventario_main" action="ti_support.device_action_window" />
-        <menuitem name="Marca" id="ti_support.ti_support_brand_menu" parent="menu_inventario_main" action="ti_support.brand_action_window" />
         <menuitem name="Asignacion de equipos" id="ti_support.ti_support_assignment_menu" parent="menu_inventario_main" action="ti_support.assignment_action_window" />
 
         <menuitem name="Soporte" id="menu_soporte_main" parent="ti_support.menu_root"/>

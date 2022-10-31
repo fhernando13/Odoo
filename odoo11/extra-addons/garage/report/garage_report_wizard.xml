@@ -8,12 +8,11 @@
                 <form string="Reporte de Motos">
                     <sheet>
                         <group>
-                            <field name="marca_select" />
-                            <field name="motor_select" />
-                            <field name="color_select" />
-                            <field name="precio_li" />
-                            <field name="precio_ls" />
-                            <field name="name_select" />
+                            <field name="model2"/>
+                            <field name="model1"/>
+                            <field name="model"/>
+                            <!-- <field name="fromdate"/> -->
+                            <field name="todate"/>
                         </group>
                         <footer>
                             <button name="get_report" string="Generar Reporte" type="object" class="oe_highlight" />
@@ -27,7 +26,7 @@
         <record id="garage.report_wizard_action" model="ir.actions.act_window">
             <field name="name">Reporte de Motos</field>
             <field name="res_model">garage.report_wizard</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">form, tree</field>
             <field name="target">new</field>
             <!-- new -->
             <!-- current -->

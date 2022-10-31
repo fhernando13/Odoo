@@ -10,12 +10,14 @@
         <form>
           <sheet>
             <group col="4">  
+              <field name="name"/>
               <field name="date_assignment"/>
-              <field name="time_assignment"/>
               <field name="status"/>
-              <field name="employee_id"/>
               <field name="device_id"/>
+              <field name="time_assignment"/>
               <field name="condition"/>
+              <field name="area_device"/>
+              <field name="no_anydesk"/>
             </group>
           </sheet>
         </form>
@@ -28,12 +30,14 @@
       <field name="model">ti_support.ti_support_assignment</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="name"/>
           <field name="date_assignment"/>
-          <field name="time_assignment"/>
           <field name="status"/>
-          <field name="employee_id"/>
           <field name="device_id"/>
+          <field name="time_assignment"/>
           <field name="condition"/>
+          <field name="area_device"/>
+          <field name="no_anydesk"/>
         </tree>
       </field>
     </record> 

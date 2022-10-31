@@ -57,10 +57,55 @@
             </field>
         </record>
 
+
+        <!-- model.name kanban view -->
+		<record id="hardware_view_kanban" model="ir.ui.view">
+			<field name="name">Vista kanban</field>
+			<field name="model">ti_support.ti_support_hardware</field>
+			<field name="arch" type="xml">
+				<kanban>
+ 					<field name="created_by" />
+					<field name="no_payroll" />
+					<field name="no_phone" widget="phone" />
+					<field name="email"/>
+					<!-- <field name="type_system"/> -->
+ 					<templates>
+ 						<t t-name="kanban-box">
+							 <div class="oe_kanban_global">
+								<!-- col 1 -->
+                		    	<div class="oe_kanban_info">
+									<div class="oe_kanban_bottom_left">
+            						    <span class="float-left text-left">
+            						       <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 
+            						                                                                        'Pendiente': 'default',                
+            						                                                                        'Cancelado': 'danger', 
+            						                                                                        'En_proceso': 'warning',
+            						                                                                        'Terminado': 'success'}}"/>
+            						   </span>
+            						</div>
+                            		<div class="o_kanban_record_top">
+                		    	    	<ul>
+											<strong class="o_kanban_record_title">
+                            	        	    <field name="created_by"/>
+                            	        	</strong>
+											<li t-if="record.no_phone.raw_value"><i class="fa fa-phone"/> <field name="no_phone"/></li>    
+											<li t-if="record.email.raw_value"><i class="fa fa-envelope"/> <field name="email"/></li>
+											<!-- <li t-if="record.type_system.raw_value"><i class="fa fa-type_system"/> <field name="type_system"/></li>               		         -->
+										</ul>
+									</div>
+								</div>
+
+							</div>
+                		</t>
+ 					</templates>
+ 				</kanban>
+			</field>
+		</record>
+
         <record model="ir.actions.act_window" id="ti_support.hardware_action_window">
 			<field name="name">Soporte técnico</field>
 			<field name="res_model">ti_support.ti_support_hardware</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">kanban,tree,form</field>
 		</record>
 
     </data>

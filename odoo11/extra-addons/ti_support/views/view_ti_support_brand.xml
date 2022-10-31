@@ -3,24 +3,39 @@
   <data>
 
     <!-- model.name kanban view -->
-    <record id="device_view_kanban" model="ir.ui.view">
-      <field name="name">Marcas</field>
-      <field name="model">ti_support.ti_support_device</field>
+    <record id="model_view_kanban" model="ir.ui.view">
+      <field name="name">Vista kanban</field>
+      <field name="model">ti_support.ti_support_brand</field>
       <field name="arch" type="xml">
-        <kanban string="Kanban Description">
-          <!-- Add your fields here -->
-          <field name="name"/>
+        <kanban>
+          <field name="name" />
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global">
+                <!-- col 1 -->
+                <div class="oe_kanban_info">
+                  <div class="oe_kanban_bottom_left"></div>
+                </div>
+                <div class="o_kanban_record_top">
+                  <ul>
+                    <strong class="o_kanban_record_title">
+                      <field name="name" />
+                    </strong>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
         </kanban>
       </field>
     </record>
 
-
     <record model="ir.actions.act_window" id="ti_support.brand_action_window">
-        <field name="name">Marcas</field>
-        <field name="res_model">ti_support.ti_support_brand</field>
-        <field name="view_mode">kanban,tree,form</field>
+      <field name="name">Marcas</field>
+      <field name="res_model">ti_support.ti_support_brand</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    
+
   </data>
 </odoo>

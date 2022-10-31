@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- View form -->
+        <record id="garage.registro_moto_form_view" model="ir.ui.view">
+            <field name="name">Registros de motocicletas</field>
+            <field name="model">garage.registro_moto</field>
+            <field name="arch" type="xml">
+                <form string="Información de la moto">
+                    <sheet>
+                        <separator string="Informacion de la moto"></separator>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="name_id"/>
+                            </group>
+                            <group>
+                                <field name="matricula"/>
+                                <field name="codigo"/>
+                            </group>
+                        </group>
+                            <field name="descripcion"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- View tree -->
+        <record id="garage.registro_moto_list_view" model="ir.ui.view">
+            <field name="name">Registros de motocicletas</field>
+            <field name="model">garage.registro_moto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="name_id"/>
+                    <field name="matricula"/>
+                    <field name="codigo"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Busqueda -->
+        <record id="garage.registro_moto_search_view" model="ir.ui.view">
+            <field name="name">Registros de motocicletas</field>
+            <field name="model">garage.registro_moto</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="name_id"/>
+                    <field name="matricula"/>
+                    <field name="codigo"/>
+                    <field name="descripcion"/>
+                </search>
+            </field>
+        </record>
+
+        
+        <record id="garage.registro_moto_action_window" model="ir.actions.act_window">
+            <field name="name">Registros de motocicletas</field>
+            <field name="res_model">garage.registro_moto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

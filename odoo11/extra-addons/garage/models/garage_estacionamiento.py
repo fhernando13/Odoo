@@ -12,4 +12,4 @@ class estacionamiento(models.Model):
 
     #relaciones
     auto_ids = fields.One2many('garage.auto', 'estacionamiento_id', string = 'Autos')
-    moto_ids = fields.One2many('garage.moto', 'estacionamiento_id', string = 'Motos')
+    moto_ids = fields.One2many('garage.registro_moto', 'estacionamiento_id', string = 'Motos')

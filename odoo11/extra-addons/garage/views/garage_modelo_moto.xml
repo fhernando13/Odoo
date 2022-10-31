@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- View form -->
+        <record id="garage.modelo_moto_form_view" model="ir.ui.view">
+            <field name="name">Modelos de motocicletas</field>
+            <field name="model">garage.modelo_moto</field>
+            <field name="arch" type="xml">
+                <form string="Información de la moto">
+                    <sheet>
+                        <separator string="Informacion de la moto"></separator>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="name_id"/>
+                                <field name="velocidades"/>
+                                <field name="tipo"/>
+                            </group>
+                            <group>
+                                <field name="anio"/>
+                                <field name="consumo"/>
+                                <field name="motor"/>
+                                <field name="color"/>
+                            </group>            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- View tree -->
+        <record model="ir.ui.view" id="garage.modelo_moto_list_view">
+            <field name="name">Motociclietas</field>
+            <field name="model">garage.modelo_moto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="name_id"/>
+                    <field name="velocidades"/>
+                    <field name="tipo"/>
+                    <field name="anio"/>
+                    <field name="consumo"/>
+                    <field name="motor"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Busqueda -->
+        <record id="garage.modelo_moto_search_view" model="ir.ui.view">
+            <field name="name">Modelos de motocicletas</field>
+            <field name="model">garage.modelo_moto</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="name_id"/>
+                    <field name="velocidades"/>
+                    <field name="tipo"/>
+                    <field name="anio"/>
+                    <field name="consumo"/>
+                    <field name="motor"/>
+                    <field name="color"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="garage.modelo_moto_action_window">
+            <field name="name">Marcas de motocicletas</field>
+            <field name="res_model">garage.modelo_moto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+    </data>
+</odoo>

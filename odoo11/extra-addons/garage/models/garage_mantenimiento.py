@@ -14,7 +14,7 @@ class mantenimiento(models.Model):
 
     #relaciones
     auto_ids =  fields.Many2many('garage.auto', string='Autos')
-    moto_ids =  fields.Many2many('garage.moto', string='Motos')
+    moto_ids =  fields.Many2many('garage.registro_moto', string='Motos')
 
     # def get_name(self):
     #     resultados = []

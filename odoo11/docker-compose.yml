@@ -2,6 +2,7 @@ version: '3.1'
 services:
   odoo11:
     image: odoo:11
+    restart: always 
     depends_on:
       - psql
     ports:
@@ -15,6 +16,7 @@ services:
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
   psql:
+    restart: always
     image: postgres:12
     ports:
       - "5454:5432"

@@ -1,17 +1,29 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data>
-    
+
         <menuitem name="Garage" id="garage.menu_root"/>
-    
-        <!-- menu categories -->
-        
+
+        <!-- Motos -->
+        <menuitem name="Motocicletas" id="menu_motocicletas_main" parent="garage.menu_root"/>
+        <menuitem name="Marcas motos" id="garage.marca_moto_menu" parent="menu_motocicletas_main" action="garage.marca_moto_action_window"/>
+        <menuitem name="Modelos motos" id="garage.modelo_moto_menu" parent="menu_motocicletas_main" action="garage.modelo_moto_action_window"/>
+        <menuitem name="Registros motos" id="garage.registro_moto_menu" parent="menu_motocicletas_main" action="garage.registro_moto_action_window"/>
+        <!-- Coches -->
+        <menuitem name="Vehiculos" id="menu_vehiculos_main" parent="garage.menu_root"/>
+        <menuitem name="Autos" id="garage.auto_menu" parent="menu_vehiculos_main" action="garage.auto_action_window"/>
+        <!-- Estacionamiento -->
+        <menuitem name="Estacionamiento" id="menu_estacionamientos_main" parent="garage.menu_root"/>
         <menuitem name="Estacionamientos" id="garage.estacionamiento_menu" parent="garage.menu_root" action="garage.estacionamiento_action_window"/>
-        <menuitem name="Autos" id="garage.auto_menu" parent="garage.menu_root" action="garage.auto_action_window"/>
-        <menuitem name="Motos" id="garage.moto_menu" parent="garage.menu_root" action="garage.moto_action_window"/>
+        <!-- Mantenimiento -->
+        <menuitem name="Mantenimiento" id="menu_mantenimiento_main" parent="garage.menu_root"/>
         <menuitem name="Mantenimientos" id="garage.mantenimiento_menu" parent="garage.menu_root" action="garage.mantenimiento_action_window"/>
-        
-    
+
+        <!-- Reportes -->
+        <!-- <menuitem name="Reportes" id="menu_reportes_main" parent="garage.menu_root"/>
+        <menuitem name="Metodos" id="garage.report_menu" parent="menu_reportes_maint" action="garage.report_action_window"/> -->
+
+
     </data>
-    
+
 </odoo>

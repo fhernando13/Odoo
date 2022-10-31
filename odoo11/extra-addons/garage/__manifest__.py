@@ -26,11 +26,14 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/garage_auto.xml',
-        'views/garage_moto.xml',
+        'views/garage_modelo_moto.xml',
+        'views/garage_marca_moto.xml',
+        'views/garage_registro_moto.xml',
         'views/garage_mantenimiento.xml',
-        'views/garage_estacionamiento.xml',        
+        'views/garage_estacionamiento.xml',
+        'views/garage_report.xml',
         'views/menu.xml',
-        'report/garage_report.xml',
+        # 'report/garage_report_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -17,11 +17,9 @@
 						</div>
 						<group col="4">
 							<field name="name" />
-							<field name="brand_id" />
+							<field name="name_id" />
 							<field name="type_device" />
-							<field name="no_anydesk" />
 							<field name="mac_address" />
-							<field name="area_device" />
 							<field name="so" />
 							<field name="storage" />
 							<field name="type_storage" />
@@ -43,18 +41,15 @@
 			<field name="arch" type="xml">
 				<tree>
 					<field name="name" />
-					<field name="brand_id" />
+					<field name="name_id" />
 					<field name="type_device" />
-					<field name="no_anydesk" />
 					<field name="mac_address" />
-					<field name="area_device" />
-					<field name="inventory_code" />
 					<field name="so" />
 					<field name="storage" />
 					<field name="type_storage" />
 					<field name="description" />
 					<field name="ram" />
-					<field name="size_ram"/>
+					<field name="size_ram" />
 				</tree>
 			</field>
 		</record>

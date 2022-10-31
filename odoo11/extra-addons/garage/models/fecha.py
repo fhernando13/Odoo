@@ -16,3 +16,15 @@ elif fecha1 < fecha2:
     print('mañana')
 elif fecha1 > fecha2:
     print('ayer')
+
+
+
+
+fecha = env['garage.moto'].search([]).sorted('construido')
+for fech in fecha:
+    for i in fech:
+        i.name, i.marca, i.construido, i.precio
+
+
+total = env['garage.moto'].search_count([])
+total

@@ -3,10 +3,12 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
 
 class ti_support_system(models.Model):
     _name = 'ti_support.ti_support_system'
+    _inherit = 'mail.thread'
 
     created_by = fields.Many2one(
         'res.users', 'Usuario', readonly=True, ondelete='restrict',
@@ -49,7 +51,7 @@ class ti_support_system(models.Model):
             email = self.env['res.users'].search([('login', '=', rec.email),  ('id', '!=', rec.id)])
             if not email:
                 print('no existe')
-                raise ValidationError("El email, no existe!!!")
+                raise UserError("El email, no existe!!!")
 
     def change_state(self):
         if self.env.uid == True:
@@ -62,7 +64,7 @@ class ti_support_system(models.Model):
             elif self.state == 'c':
                 self.state = 'p'
         else:
-            raise ValidationError("No tiene permisos para cambiar el estado del proceso!!")
+            raise UserError("No tiene permisos para cambiar el estado del proceso!!")
 
     # xml_file_name ='Nombre'+'.xml'
                 # self.env['ir.attachment'].sudo().create(
