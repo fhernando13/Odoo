@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="0">
-    <!-- Data records go here -->
-    <record id="group_user" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="base.module_category_ti_support"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-    </record>
+
     
-    <record id="group_admin" model="res.groups">
-        <field name="name">Admin</field>
-        <field name="category_id" ref="base.module_category_ti_support"/>
-        <field name="implied_ids" eval="[(4, ref('group_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
-    </record>
+    <!-- Data records go here -->
+
+    <data noupdate="0">
+
+        <record id="group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="base.module_category_ti_support" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+
+        <record id="group_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="base.module_category_ti_support" />
+            <field name="implied_ids" eval="[(4, ref('group_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_root'))]" />
+        </record>
 
     </data>
+
+    <!-- Record rules -->
+
+    <data noupdate="1">
+        <record model="ir.rule" id="ti_support_ti_support_technical_support_user_rule">
+            <field name="name">Tickes de soporte técnico</field>
+            <field name="model_id" ref="model_ti_support_ti_support_technical_support" />
+            <field name="groups" eval="[(4, ref('base.group_user'))]" />
+            <field name="domain_force">
+                [('create_uid', '=', user.id)]
+            </field>
+        </record>
+
+        <record model="ir.rule" id="ti_support_ti_support_technical_support_all_rule">
+            <field name="name">Tickes de soporte técnico</field>
+            <field name="model_id" ref="model_ti_support_ti_support_technical_support" />
+            <field name="groups"
+                eval="[(4, ref('base.group_system'))]" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data>
+
 </odoo>

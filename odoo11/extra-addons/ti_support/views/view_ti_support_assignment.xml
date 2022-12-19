@@ -11,9 +11,9 @@
           <sheet>
             <group col="4">  
               <field name="name"/>
+              <field name="name_id"/>
               <field name="date_assignment"/>
               <field name="status"/>
-              <field name="device_id"/>
               <field name="time_assignment"/>
               <field name="condition"/>
               <field name="area_device"/>
@@ -31,9 +31,9 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="name_id"/>
           <field name="date_assignment"/>
           <field name="status"/>
-          <field name="device_id"/>
           <field name="time_assignment"/>
           <field name="condition"/>
           <field name="area_device"/>

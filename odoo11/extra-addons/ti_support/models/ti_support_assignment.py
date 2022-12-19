@@ -6,17 +6,18 @@ from odoo.exceptions import ValidationError
 
 
 class ti_support_assignment(models.Model):
-    _name = 'ti_support.ti_support_assignment'  
+    _name = 'ti_support.ti_support_assignment'
 
-    name = fields.Char(string='Empleado', required=True)
+    
+    name = fields.Many2one('hr.employee', string='Empleado', required=True, help='A quién se le asignará el dispostivo')
+    name_id = fields.Many2one('ti_support.ti_support_device', string='Dispositivo', required=True)
     date_assignment = fields.Date(string='Fecha de asignacion', required=True)
     status = fields.Selection(string='Estado', selection=[('N', 'Nuevo'), ('U', 'Usado')], default='N', require=True)
-    device_id = fields.Many2one('ti_support.ti_support_device', string='Dispositivo', required=True) 
     time_assignment = fields.Integer(string='Días con el equipo', compute='time_trans')
     condition = fields.Selection(selection=[('p', 'Prestado'), ('a', 'Asignado')], default='a', required=True)
     area_device = fields.Selection(string='Área', selection=[('P', 'produccion'), ('O', 'Oficinas'), ('M', 'Mesanin'), ('A', 'Almacen'), ('C', 'Comedor')], default='O')
     no_anydesk = fields.Char(string='Numero anydesk', required=True, help="Número de 9 digitos decimal")
-    
+
 
     @api.multi
     def time_trans(self):
@@ -42,7 +43,7 @@ class ti_support_assignment(models.Model):
                     else:
                         break
             record.time_assignment = days
-        
+
     @api.constrains('no_anydesk')
     def check_anydesk(self):
         for i in self:
@@ -60,4 +61,3 @@ class ti_support_assignment(models.Model):
 
 
 
-   

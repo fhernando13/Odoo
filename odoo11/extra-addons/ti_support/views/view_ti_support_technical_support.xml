@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- model.name form view -->
+		<record id="technical_support_view_form" model="ir.ui.view">
+			<field name="name">Soporte técnico</field>
+			<field name="model">ti_support.ti_support_technical_support</field>
+			<field name="arch" type="xml">
+				<form string="">
+					<sheet>
+						<header>
+							<h1>
+            					<field name="name"/>
+            				</h1>
+                            <button type="object" name="change_state" string="Secuencia" class="oe_highlight" style=""/>
+                            <field name="state" widget="statusbar" statusbar_visible="p,i,d,c"/>
+                       </header>
+					   
+						<h2 name="header_name">
+							<field name="created_by"/>
+						</h2>
+						<group col="4">
+							<field name="area" />
+							<field name="type_error"/>
+						</group>
+						<group col="4">
+							<field name="link_page" widget="url" />
+						</group>
+						<group col="4">
+							<field name="issue"/>
+						</group>
+						<notebook>
+							<page name="name" string="Capturas">
+								<!-- captura -->
+								<!-- <field name="caption" filename="store_fname" /> -->
+								<field name="caption" />
+							</page>
+						</notebook>
+						<div class="row mt8">
+                            <div class="col-md-3">
+                                <div><label for="date_created" string="Hora"/></div>
+                                <div><field name="date_created"/></div>
+                            </div>
+                        </div>
+					</sheet>
+					<div class="oe_chatter" style="display:block; ">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		
+		<!-- model.name tree view -->
+		<record id="technical_support_view_tree" model="ir.ui.view">
+			<field name="name">Lista de reportes</field>
+			<field name="model">ti_support.ti_support_technical_support</field>
+			<field name="arch" type="xml">
+				<tree>
+					<!-- Add your fields here -->
+					<field name="name"/>
+					<field name="type_error"/>
+					<field name="created_by" />
+					<field name="area" />
+					<field name="state" />
+					<field name="progress" widget="progressbar" />
+					<field name="issue" />
+					<!-- <field name="priority"/> -->
+				</tree>
+			</field>
+		</record>
+
+
+		<!-- Sequence tickets -->
+    	<record id="sequence_name" model="ir.sequence">
+    	  <field name="name">Folio ticket soporte</field>
+    	  <field name="code">ti_support.ti_support_technical_support</field>
+    	  <field name="prefix">TST/%(range_year)s/</field>
+    	  <field eval="1" name="number_next" />
+    	  <field eval="1" name="number_increment" />
+    	  <field eval="True" name="use_date_range" />
+    	  <field eval="False" name="company_id" />
+    	  <field name="padding">3</field>
+    	</record>
+
+		<!-- model.name kanban view -->
+		<record id="technical_support_view_kanban" model="ir.ui.view">
+			<field name="name">Vista kanban</field>
+			<field name="model">ti_support.ti_support_technical_support</field>
+			<field name="arch" type="xml">
+				<kanban>
+ 					<field name="created_by" />
+					<field name="type_error"/>
+ 					<templates>
+ 						<t t-name="kanban-box">
+							 <div class="oe_kanban_global">
+								<!-- col 1 -->
+                		    	<div class="oe_kanban_info">
+									<div class="oe_kanban_bottom_left">
+            						    <span class="float-left text-left">
+            						       <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 
+            						                                                                        'Pendiente': 'default',                
+            						                                                                        'Cancelado': 'danger', 
+            						                                                                        'En_proceso': 'warning',
+            						                                                                        'Terminado': 'success'}}"/>
+            						   </span>
+            						</div>
+                            		<div class="o_kanban_record_top">
+                		    	    	<ul>
+											<strong class="o_kanban_record_title">
+                            	        	    <field name="created_by"/>
+                            	        	</strong>
+											<li t-if="record.type_error.raw_value"><i class="fa fa-type_error"/> <field name="type_error"/></li>               		        
+										</ul>
+									</div>
+								</div>
+
+							</div>
+                		</t>
+ 					</templates>
+ 				</kanban>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="ti_support.technical_support_action_window">
+			<field name="name">Soporte técnico</field>
+			<field name="res_model">ti_support.ti_support_technical_support</field>
+			<field name="view_mode">kanban,tree,form</field>
+		</record>
+
+	</data>
+</odoo>
